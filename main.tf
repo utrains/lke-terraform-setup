@@ -2,7 +2,7 @@ terraform {
   required_providers {
     linode = {
       source = "linode/linode"
-      version = "1.27.1"
+      version = "2.7.1"
     }
   }
 }
@@ -13,7 +13,7 @@ provider "linode" {
 
 //Use the linode_lke_cluster resource to create
 //a Kubernetes cluster
-resource "linode_lke_cluster" "my-cluster" {
+resource "linode_lke_cluster" "utrains_linode_k8s" {
     k8s_version = var.k8s_version
     label = var.label
     region = var.region
@@ -30,23 +30,6 @@ resource "linode_lke_cluster" "my-cluster" {
 
 //Export this cluster's attributes
 output "kubeconfig" {
-   value = linode_lke_cluster.my-cluster.kubeconfig
-   sensitive = true
+  value = linode_lke_cluster.utrains_linode_k8s.kubeconfig
+  sensitive = true
 }
-
-output "api_endpoints" {
-   value = linode_lke_cluster.my-cluster.api_endpoints
-}
-
-output "status" {
-   value = linode_lke_cluster.my-cluster.status
-}
-
-output "id" {
-   value = linode_lke_cluster.my-cluster.id
-}
-
-output "pool" {
-   value = linode_lke_cluster.my-cluster.pool
-}
-    

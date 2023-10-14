@@ -1,5 +1,5 @@
-label = "lke-terraform-cluster"
-k8s_version = "1.24"
+label = "utrains-lke-cluster"
+k8s_version = "1.26"
 region = "us-west"
 pools = [
   {
@@ -7,4 +7,3 @@ pools = [
     count : 3
   }
 ]
-      
